@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ShoppingDetailEffectSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,31 +18,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tgS-M2-4zB">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Woi-wC-8fG">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="APv-kI-1oC"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ybN-eu-NMg"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Fbf-Fp-Gad"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ftw-n3-kFI"/>
                                 </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tgS-M2-4zB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Zvk-kV-3Tk"/>
-                            <constraint firstAttribute="trailing" secondItem="tgS-M2-4zB" secondAttribute="trailing" id="eKE-92-wtB"/>
-                            <constraint firstItem="tgS-M2-4zB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="weJ-7a-SGX"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tgS-M2-4zB" secondAttribute="bottom" id="yBX-wN-BHb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Woi-wC-8fG" secondAttribute="bottom" id="IPt-5i-ZYP"/>
+                            <constraint firstItem="Woi-wC-8fG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Y6f-fF-Fb0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Woi-wC-8fG" secondAttribute="trailing" constant="-20" id="ciz-mD-Ovn"/>
+                            <constraint firstItem="Woi-wC-8fG" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="fKQ-SF-KT5"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="tableView" destination="tgS-M2-4zB" id="eOv-tv-Z4S"/>
+                        <outlet property="tableView" destination="Woi-wC-8fG" id="28H-U3-qZV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="246" y="324"/>
+            <point key="canvasLocation" x="378" y="339"/>
         </scene>
     </scenes>
 </document>

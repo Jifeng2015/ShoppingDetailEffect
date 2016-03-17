@@ -59,7 +59,12 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     if (scrollView==self.tableView) {
-        _view.top = -200*3/5.0+scrollView.contentOffset.y*2/5.0;
+//        if (scrollView.contentOffset.y<-200) {
+//            _view.top = -200;
+//        }else{
+            _view.top = -200*3/5.0+scrollView.contentOffset.y*2/5.0;
+//        }
+        
         float maxOffset = MAX(30, self.tableView.contentSize.height-self.tableView.height+30);
         if (scrollView.contentOffset.y>maxOffset && !scrollView.isDragging && scrollView.decelerating) {
             [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentSize.height-50) animated:YES];

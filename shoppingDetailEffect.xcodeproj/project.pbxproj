@@ -61,9 +61,9 @@
 		015EDB641C85DA35004C17F8 /* shoppingDetailEffect */ = {
 			isa = PBXGroup;
 			children = (
-				015EDB681C85DA35004C17F8 /* AppDelegate.h */,
 				015EDB7C1C85DAEB004C17F8 /* UIView+Size.h */,
 				015EDB7D1C85DAEB004C17F8 /* UIView+Size.m */,
+				015EDB681C85DA35004C17F8 /* AppDelegate.h */,
 				015EDB691C85DA35004C17F8 /* AppDelegate.m */,
 				015EDB6B1C85DA35004C17F8 /* ViewController.h */,
 				015EDB6C1C85DA35004C17F8 /* ViewController.m */,
