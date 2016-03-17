@@ -48,6 +48,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         headView.backgroundColor = UIColor.greenColor()
         tableView.addSubview(headView)
         
+        tableView.sendSubviewToBack(headView)
+        
         for var i=0; i<4; i++ {
             let label = UILabel.init(frame: CGRectMake(0, 20+CGFloat(i)*50, view.frame.size.width, 50))
             label.textColor = UIColor.whiteColor()
