@@ -18,20 +18,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     var _tipLab : UIView!
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        webView = UIWebView.init(frame: CGRectMake(0, tableView.contentSize.height, view.width, view.height-50))
-        webView.backgroundColor = UIColor.magentaColor()
+        webView = UIWebView.init(frame: CGRect(x: 0, y: tableView.contentSize.height, width: view.width, height: view.height-50))
+        webView.backgroundColor = UIColor.magenta
         webView.scalesPageToFit = true
         webView.scrollView.delegate = self
-        webView.loadRequest(NSURLRequest(URL: NSURL(string: "https://coding.net/u/fzhongli/p/shoppingDetailEffect/git")!))
+        webView.loadRequest(URLRequest(url: URL(string: "https://coding.net/u/fzhongli/p/shoppingDetailEffect/git")!))
         tableView.addSubview(webView)
         
         
-        let tipLab = UILabel.init(frame: CGRectMake(0, 0, view.width, -50))
-        tipLab.textAlignment = .Center
-        tipLab.textColor = UIColor.whiteColor()
+        let tipLab = UILabel.init(frame: CGRect(x: 0, y: 0, width: view.width, height: -50))
+        tipLab.textAlignment = .center
+        tipLab.textColor = UIColor.white
         tipLab.text = "----下拉返回----"
         webView.scrollView.addSubview(tipLab)
         _tipLab = tipLab
@@ -41,20 +41,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.viewDidLoad()
         
         tableView.contentInset = UIEdgeInsetsMake(200, 0, 0, 0)
-        tableView.backgroundColor = UIColor.lightGrayColor()
+        tableView.backgroundColor = UIColor.lightGray
         tableView.rowHeight = 100
         
-        headView = UIView.init(frame: CGRectMake(0, -200, view.width, 230))
-        headView.backgroundColor = UIColor.greenColor()
+        headView = UIView.init(frame: CGRect(x: 0, y: -200, width: view.width, height: 230))
+        headView.backgroundColor = UIColor.green
         tableView.addSubview(headView)
         
-        tableView.sendSubviewToBack(headView)
+        tableView.sendSubview(toBack: headView)
         
-        for var i=0; i<4; i++ {
-            let label = UILabel.init(frame: CGRectMake(0, 20+CGFloat(i)*50, view.frame.size.width, 50))
-            label.textColor = UIColor.whiteColor()
+        for i in 0 ..< 4 {
+            let label = UILabel.init(frame: CGRect(x: 0, y: 20+CGFloat(i)*50, width: view.frame.size.width, height: 50))
+            label.textColor = UIColor.white
             label.text = "----\(i)----"
-            label.textAlignment = .Center
+            label.textAlignment = .center
             headView.addSubview(label)
         }
         
@@ -64,51 +64,51 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.isEqual(tableView)  {
             
             headView?.top = -200.0*3.0/5.0+scrollView.contentOffset.y*2.0/5.0
             
             let maxOffset = max(30, tableView.contentSize.height - tableView.height + 30)
-            if (scrollView.contentOffset.y > maxOffset && !scrollView.dragging && scrollView.decelerating) {
+            if (scrollView.contentOffset.y > maxOffset && !scrollView.isDragging && scrollView.isDecelerating) {
                 
-                tableView.setContentOffset(CGPointMake(0, tableView.contentSize.height-50), animated: true)
-                tableView.scrollEnabled = false;
+                tableView.setContentOffset(CGPoint(x: 0, y: tableView.contentSize.height-50), animated: true)
+                tableView.isScrollEnabled = false;
             }
         }
         if scrollView.isEqual(webView?.scrollView)  {
             
             _tipLab?.top = scrollView.contentOffset.y
             
-            if (scrollView.contentOffset.y < -30 && !scrollView.dragging && scrollView.decelerating) {
+            if (scrollView.contentOffset.y < -30 && !scrollView.isDragging && scrollView.isDecelerating) {
                 
-                tableView.setContentOffset(CGPointMake(0, -200), animated: true)
-                webView.scrollView.contentOffset = CGPointZero
-                tableView.scrollEnabled = true;
+                tableView.setContentOffset(CGPoint(x: 0, y: -200), animated: true)
+                webView.scrollView.contentOffset = CGPoint.zero
+                tableView.isScrollEnabled = true;
                 
             }
         }
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("cellIdentifier")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier")
         if cell == nil {
-            cell = UITableViewCell.init(style: .Default, reuseIdentifier: "cellIdentifier")
+            cell = UITableViewCell.init(style: .default, reuseIdentifier: "cellIdentifier")
         }
         cell?.textLabel?.text = NSString.init(format: "-SS--%ld---BB-", indexPath.row) as String
         return cell!
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 50.0
     }
     
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.7)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
         return view
     }
 
